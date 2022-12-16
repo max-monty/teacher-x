@@ -4,7 +4,9 @@ import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts'
 import Link from 'next/link'
 import Date from '../components/date'
+import ChatGTP from '../components/chatgtp'
 import { GetStaticProps } from 'next'
+import { useState } from 'react'
 
 export default function Home({ allPostsData }: {
   allPostsData: {
@@ -26,6 +28,8 @@ export default function Home({ allPostsData }: {
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+        <h2 className={utilStyles.headingLg}>Ask ChatGTP</h2>
+        <ChatGTP />
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
